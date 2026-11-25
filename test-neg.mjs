@@ -16,6 +16,8 @@ const cases = [
   ["no letters rejected", "12345 !!!", "letters"],
   ["fewer than 5 words rejected", "Dad naps daily.", "5 words"],
   ["off-topic rejected", "The cat slept all afternoon on the warm windowsill.", "dad joke"],
+  ["link rejected", "Dad naps daily see https://example.com for proof.", "links"],
+  ["repeated-character spam rejected", "Dad naaaaaps daily.", "spam"],
   ["original entry accepted", ENTRY, null],
 ];
 

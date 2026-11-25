@@ -20,6 +20,8 @@ export function screenEntry(text: string): string | null {
   if (/[\u0000-\u001F\u007F]/.test(text)) return "no control characters";
   if (/[\u200B-\u200F\uFEFF]/.test(text)) return "no invisible characters";
   if (!/[A-Za-z]/.test(text)) return "entry must contain letters";
+  if (/https?:\/\/|www\./i.test(text)) return "no links in the entry";
+  if (/(.)\1{4,}/.test(text)) return "no repeated-character spam";
   if (text.split(/\s+/).length < 5) return "entry must be at least 5 words";
   if (!/dad|father|papa|mom|mum|kid|son|daughter|family|dinner|barbecue|groan/i.test(text))
     return "entry must read like a dad joke";
